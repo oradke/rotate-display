@@ -1,0 +1,20 @@
+[Unit]
+Description=Rotate HDMI or DisplayLink display
+After=multi-user.target
+
+[Service]
+Type=oneshot
+User=dietpi
+Group=dietpi
+
+Environment=HOME=/home/labwc
+Environment=XDG_RUNTIME_DIR=/tmp/labwc
+Environment=WAYLAND_DISPLAY=wayland-0
+
+ExecStart=/usr/local/bin/rotate-display.sh
+
+TimeoutStartSec=360
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
